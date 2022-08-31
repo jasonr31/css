@@ -20,7 +20,7 @@
 
 [dir] .nx-theme-styles  .nx-group-control-container p {
     color: #000000;
-    /* font-weight: bold;  */
+    font-weight: bold;
 }
 
 [dir] .nx-theme-styles .nx-theme-form .nx-theme-button-1 {

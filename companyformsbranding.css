@@ -9,8 +9,8 @@
     }
 
 [dir] .nx-theme-styles .nx-error-message {
-    background-color: #003870;
-    border: #003870;
+    background-color: #FF6D00;
+    border: #FF6D00;
 }
 
 [dir] .nx-theme-styles  .nx-group-control-container .nx-group-control-header-background {
@@ -25,7 +25,7 @@
 
 [dir] .nx-theme-styles .nx-theme-form .nx-theme-button-1 {
   content: "";
-  background-color: #003870;
+  background-color: #FF6D00;
   color: white;
   border: none;
   padding: 5px;

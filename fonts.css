@@ -1,1 +1,2 @@
 .theme-entry * { --main-font-family: "Comic Sans MS" !important; --button-fon-family: "Comic Sans MS" !important; }
+.theme-entry .drop-menu ul.drop-menu a { --font-family: "Comic Sans MS" !important; }

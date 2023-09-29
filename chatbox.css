@@ -6,6 +6,7 @@
   flex-direction: column;
   padding: 20px;
   max-width: 500px;
+  max-height: 400px;
   margin: auto;
   overflow-y:auto;
 }

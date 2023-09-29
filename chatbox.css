@@ -10,6 +10,7 @@
   margin: auto;
   overflow-y:auto;
   transform: rotate(180deg);
+
 }
 
 .msg {
@@ -17,6 +18,7 @@
   max-width: 75%;
   padding: 7px 15px;
   margin-bottom: 2px;
+  transform: rotate(180deg);
 }
 
 .msg.sent {
@@ -25,7 +27,6 @@
   color: #fff;
   /* moves it to the right */
   margin-left: auto;
-  transform: rotate(180deg);
 }
 
 .msg.rcvd {
@@ -34,7 +35,6 @@
   color: #555;
   /* moves it to the left */
   margin-right: auto;
-  transform: rotate(180deg);
 }
 
 /* Improve radius for messages group */

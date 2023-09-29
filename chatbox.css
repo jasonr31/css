@@ -9,8 +9,6 @@
   height: 400px;
   margin: auto;
   overflow-y:auto;
-  position: -webkit-sticky;
-  position: sticky;
 }
 
 .msg {

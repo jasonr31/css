@@ -9,6 +9,7 @@
   max-height: 400px;
   margin: auto;
   overflow-y:auto;
+  transform: rotate(180deg);
 }
 
 .msg {

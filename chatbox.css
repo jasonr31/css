@@ -3,7 +3,7 @@
   --rad-sm: 3px;
   font: 16px/1.5 sans-serif;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   padding: 20px;
   max-width: 500px;
   height: 400px;

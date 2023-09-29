@@ -25,6 +25,7 @@
   color: #fff;
   /* moves it to the right */
   margin-left: auto;
+  transform: rotate(180deg);
 }
 
 .msg.rcvd {
@@ -33,6 +34,7 @@
   color: #555;
   /* moves it to the left */
   margin-right: auto;
+  transform: rotate(180deg);
 }
 
 /* Improve radius for messages group */

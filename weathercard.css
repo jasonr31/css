@@ -6,8 +6,7 @@ body {
 }
 
 .widget {
-  position: absolute;
-  z-index: 100;
+  position: relative;
   top: 10%;
   left: 90%;
   display: flex;

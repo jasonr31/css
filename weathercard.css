@@ -7,7 +7,7 @@ article {
 
 .widget {
   position: relative;
-  z-index: -1;
+  z-index: 100;
   top: 10%;
   left: 90%;
   display: flex;

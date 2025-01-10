@@ -1,20 +1,17 @@
-@import url(https://fonts.googleapis.com/css?family=Poiret+One);
-@import url(https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css);
-
 $border-radius: 20px;
 
 body {
-  background-color: #A64253;
+  background-color: #334564;
   font-family: Poiret One;
 }
 
 .widget {
-  position: absolute;
-  top: 50%;
-  left: 50%;
+  position: relative;
+  top: 10%;
+  left: 90%;
   display: flex;
-  height: 300px;
-  width: 600px;
+  height: 150px;
+  width: 350px;
   transform: translate(-50%, -50%);
   flex-wrap: wrap;
   cursor: pointer;
@@ -27,11 +24,10 @@ body {
     border-top-left-radius: $border-radius;
     border-top-right-radius: $border-radius;
     background: #FAFAFA;
-    font-family: weathericons;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    font-size: 100px;
+    font-size: 40px;
     
     i{
       padding-top: 30px;
@@ -50,7 +46,7 @@ body {
     .temperature{
       flex: 0 0 40%;
       width: 100%;
-      font-size: 65px;
+      font-size: 35px;
       display: flex;
       justify-content: space-around;
     }
@@ -65,7 +61,7 @@ body {
       
       .weatherCondition{
         text-transform: uppercase;
-        font-size: 35px;
+        font-size: 17.5px;
         font-weight: 100;
       }
       
@@ -84,7 +80,7 @@ body {
     justify-content: space-around;
     align-items: center;
     color: white;
-    font-size: 30px;
+    font-size: 28px;
     font-weight: 800;
   }
 }

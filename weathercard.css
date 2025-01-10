@@ -6,8 +6,8 @@ article {
 }
 
 .widget {
-  position: absolute;
-  z-index: 1000;
+  position: relative;
+  z-index: -1;
   top: 10%;
   left: 90%;
   display: flex;

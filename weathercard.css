@@ -1,12 +1,12 @@
 $border-radius: 20px;
 
-article {
+body {
   background-color: #334564;
   font-family: Poiret One;
 }
 
 .widget {
-  position: relative;
+  position: aboslute;
   z-index: 100;
   top: 10%;
   left: 90%;

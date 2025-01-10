@@ -4,10 +4,10 @@
 /*body {
   background: linear-gradient(90deg, #7474BF 10%, #348AC7 90%);
 }*/
-/*#weather_wrapper{
+#weather_wrapper{
   width: 400px;
   margin: 100px auto;
-}*/
+}
 .weatherCard{
   width: 360px;
   height: 180px;

@@ -12,10 +12,10 @@
         font-weight: bold;
         font-size: larger;
     }
-    .weatherheading
+    .weathericon
     {
         display: table-row;
-        text-align: center;
+        margin: auto;
         font-weight: bold;
     }
     .weatherdescription

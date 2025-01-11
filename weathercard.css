@@ -20,6 +20,7 @@
     .weatherdescription
     {
       display: table-cell;
+      text-transform: capitalize;
     }
     .weatherrow
     {

@@ -16,12 +16,10 @@
     {
         display: table-row;
         margin: auto;
-        font-weight: bold;
     }
     .weatherdescription
     {
       display: table-cell;
-      text-transform: uppercase;
     }
     .weatherrow
     {

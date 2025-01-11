@@ -21,7 +21,7 @@
     .weatherdescription
     {
       display: table-cell;
-      text-transform: capitalize;
+      text-transform: uppercase;
     }
     .weatherrow
     {

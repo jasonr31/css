@@ -2,6 +2,7 @@
     .weathertable
     {
         display: table;
+        text-align: center;
     }
     .weathertitle
     {
@@ -13,18 +14,21 @@
     .weatherheading
     {
         display: table-row;
+        text-align: center;
         font-weight: bold;
         text-align: center;
     }
     .weatherrow
     {
         display: table-row;
+        text-align: center;
     }
     .weathercell
     {
         display: table-cell;
-        border: none;
+        border: solid;
         border-width: thin;
-       /* padding-left: 5px;
-        padding-right: 5px;*/
+        padding-left: 0px;
+        padding-right: 0px;
+        text-align: center;
     }

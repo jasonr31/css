@@ -3,6 +3,8 @@
     {
         display: table;
         text-align: center;
+        border: none;
+        border-width: thin;
     }
     .weathertitle
     {
@@ -26,9 +28,6 @@
     .weathercell
     {
         display: table-cell;
-        border: solid;
-        border-width: thin;
         padding-left: 0px;
-        padding-right: 0px;
-       
+        padding-right: 0px;  
     }

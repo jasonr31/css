@@ -1,26 +1,26 @@
-<style type="text/css">
-    .Table
+
+    .weathertable
     {
         display: table;
     }
-    .Title
+    .weathertitle
     {
         display: table-caption;
         text-align: center;
         font-weight: bold;
         font-size: larger;
     }
-    .Heading
+    .weatherheading
     {
         display: table-row;
         font-weight: bold;
         text-align: center;
     }
-    .Row
+    .weatherrow
     {
         display: table-row;
     }
-    .Cell
+    .weathercell
     {
         display: table-cell;
         border: none;
@@ -28,4 +28,3 @@
        /* padding-left: 5px;
         padding-right: 5px;*/
     }
-</style>

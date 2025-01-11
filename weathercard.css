@@ -30,6 +30,5 @@
     .weathercell
     {
         display: table-cell;
-        padding-left: 0px;
-        padding-right: 0px;  
+        margin: auto;
     }

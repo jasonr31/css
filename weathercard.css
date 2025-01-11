@@ -16,12 +16,12 @@
         display: table-row;
         text-align: center;
         font-weight: bold;
-        text-align: center;
+       
     }
     .weatherrow
     {
         display: table-row;
-        text-align: center;
+        
     }
     .weathercell
     {
@@ -30,5 +30,5 @@
         border-width: thin;
         padding-left: 0px;
         padding-right: 0px;
-        text-align: center;
+       
     }

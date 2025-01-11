@@ -9,7 +9,6 @@
     .weathertitle
     {
         display: table-caption;
-        text-align: center;
         font-weight: bold;
         font-size: larger;
     }
@@ -18,12 +17,10 @@
         display: table-row;
         text-align: center;
         font-weight: bold;
-       
     }
     .weatherrow
     {
         display: table-row;
-        
     }
     .weathercell
     {

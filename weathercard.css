@@ -3,7 +3,6 @@
     {
         display: table;
         text-align: center;
-        border: none;
         border-width: thin;
     }
     .weathertitle
@@ -14,8 +13,8 @@
     }
     .weathericon
     {
-        display: table-row;
-        margin: auto;
+        display: table-cell;
+    
     }
     .weatherdescription
     {

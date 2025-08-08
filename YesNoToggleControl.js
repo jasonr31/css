@@ -34,6 +34,7 @@ function convertCheckboxesToToggles() {
 
         // Insert toggle after checkbox
         checkbox.parentNode.insertBefore(toggleContainer, checkbox.nextSibling);
+        alert('running /-\|');
     });
 }
 

@@ -5,11 +5,9 @@
   height: 34px;
   margin-left: 10px;
 }
-
 .toggle-switch input {
   display: none;
 }
-
 .slider {
   position: absolute;
   cursor: pointer;
@@ -19,7 +17,6 @@
   height: 100%;
   width: 100%;
 }
-
 .slider:before {
   content: "";
   position: absolute;
@@ -31,11 +28,9 @@
   transition: 0.4s;
   border-radius: 50%;
 }
-
 input:checked + .slider {
   background-color: #2196F3;
 }
-
 input:checked + .slider:before {
   transform: translateX(26px);
 }

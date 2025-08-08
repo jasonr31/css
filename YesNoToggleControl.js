@@ -1,40 +1,34 @@
-function convertCheckboxesToToggles() {
-    const checkboxContainers = document.querySelectorAll(".theme-entry input[type='checkbox']");
+$(function () {
+    SCPSAPI$OverrideCheckboxRender();
+});
 
-    checkboxContainers.forEach(checkbox => {
-        // Skip if already converted
-        if (checkbox.dataset.toggleConverted === "true") return;
+/* Override Checkbox Rendering to Toggle Switches */
+function SCPSAPI$OverrideCheckboxRender() {
+    // Wait for K2 SmartForm to finish rendering
+    SourceCode.Forms.Runtime.Events.RegisterEventHandler("AfterFormLoad", function () {
+        const checkboxes = $(".theme-entry input[type='checkbox']");
 
-        // Hide original checkbox
-        checkbox.style.display = "none";
-        checkbox.dataset.toggleConverted = "true";
+        checkboxes.each(function () {
+            const $checkbox = $(this);
 
-        // Create toggle container
-        const toggleContainer = document.createElement("label");
-        toggleContainer.className = "toggle-switch";
+            // Skip if already converted
+            if ($checkbox.data("toggleConverted")) return;
 
-        // Create toggle input
-        const toggleInput = document.createElement("input");
-        toggleInput.type = "checkbox";
-        toggleInput.checked = checkbox.checked;
+            $checkbox.data("toggleConverted", true);
+            $checkbox.css("display", "none");
 
-        // Sync toggle with original checkbox
-        toggleInput.addEventListener("change", () => {
-            checkbox.checked = toggleInput.checked;
-            checkbox.dispatchEvent(new Event("change")); // Trigger K2 rules
+            // Create toggle switch markup
+            const $toggleContainer = $("<label>").addClass("toggle-switch");
+            const $toggleInput = $("<input>").attr("type", "checkbox").prop("checked", $checkbox.prop("checked"));
+            const $slider = $("<span>").addClass("slider");
+
+            // Sync toggle with original checkbox
+            $toggleInput.on("change", function () {
+                $checkbox.prop("checked", this.checked).trigger("change");
+            });
+
+            $toggleContainer.append($toggleInput).append($slider);
+            $checkbox.after($toggleContainer);
         });
-
-        // Create slider
-        const slider = document.createElement("span");
-        slider.className = "slider";
-
-        // Assemble toggle
-        toggleContainer.appendChild(toggleInput);
-        toggleContainer.appendChild(slider);
-
-        // Insert toggle after checkbox
-        checkbox.parentNode.insertBefore(toggleContainer, checkbox.nextSibling);
     });
 }
-
-document.addEventListener("DOMContentLoaded", convertCheckboxesToToggles);

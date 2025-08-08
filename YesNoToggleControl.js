@@ -1,36 +1,41 @@
-document.addEventListener("DOMContentLoaded", function () {
-    // Replace these IDs with the actual checkbox control IDs
-    const checkboxIds = ["chkOption1", "chkOption2", "chkOption3"];
+function convertCheckboxesToToggles() {
+    const checkboxes = document.querySelectorAll("input[type='checkbox']");
 
-    checkboxIds.forEach(id => {
-        const checkbox = document.getElementById(id);
-        if (checkbox) {
-            // Hide original checkbox
-            checkbox.style.display = "none";
+    checkboxes.forEach(checkbox => {
+        // Skip if already converted
+        if (checkbox.dataset.toggleConverted === "true") return;
 
-            // Create toggle container
-            const toggleContainer = document.createElement("label");
-            toggleContainer.className = "toggle-switch";
+        // Hide original checkbox
+        checkbox.style.display = "none";
+        checkbox.dataset.toggleConverted = "true";
 
-            // Create toggle input
-            const toggleInput = document.createElement("input");
-            toggleInput.type = "checkbox";
-            toggleInput.checked = checkbox.checked;
+        // Create toggle container
+        const toggleContainer = document.createElement("label");
+        toggleContainer.className = "toggle-switch";
 
-            // Sync toggle with original checkbox
-            toggleInput.addEventListener("change", () => {
-                checkbox.checked = toggleInput.checked;
-                checkbox.dispatchEvent(new Event("change")); // Trigger K2 rules
-            });
+        // Create toggle input
+        const toggleInput = document.createElement("input");
+        toggleInput.type = "checkbox";
+        toggleInput.checked = checkbox.checked;
 
-            // Create slider
-            const slider = document.createElement("span");
-            slider.className = "slider";
+        // Sync toggle with original checkbox
+        toggleInput.addEventListener("change", () => {
+            checkbox.checked = toggleInput.checked;
+            checkbox.dispatchEvent(new Event("change")); // Trigger K2 rules
+        });
 
-            // Assemble toggle
-            toggleContainer.appendChild(toggleInput);
-            toggleContainer.appendChild(slider);
-            checkbox.parentNode.insertBefore(toggleContainer, checkbox.nextSibling);
-        }
+        // Create slider
+        const slider = document.createElement("span");
+        slider.className = "slider";
+
+        // Assemble toggle
+        toggleContainer.appendChild(toggleInput);
+        toggleContainer.appendChild(slider);
+
+        // Insert toggle after checkbox
+        checkbox.parentNode.insertBefore(toggleContainer, checkbox.nextSibling);
     });
-});
+}
+
+// Run the function after the DOM is ready
+document.addEventListener("DOMContentLoaded", convertCheckboxesToToggles);

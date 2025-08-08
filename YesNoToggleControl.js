@@ -1,7 +1,7 @@
 function convertCheckboxesToToggles() {
-    const checkboxes = document.querySelectorAll("input[type='checkbox']");
+    const checkboxContainers = document.querySelectorAll(".theme-entry input[type='checkbox']");
 
-    checkboxes.forEach(checkbox => {
+    checkboxContainers.forEach(checkbox => {
         // Skip if already converted
         if (checkbox.dataset.toggleConverted === "true") return;
 
@@ -34,9 +34,7 @@ function convertCheckboxesToToggles() {
 
         // Insert toggle after checkbox
         checkbox.parentNode.insertBefore(toggleContainer, checkbox.nextSibling);
-        alert('running /-\|');
     });
 }
 
-// Run the function after the DOM is ready
 document.addEventListener("DOMContentLoaded", convertCheckboxesToToggles);

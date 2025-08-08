@@ -5,10 +5,12 @@
   height: 34px;
   margin-left: 10px;
 }
+
 .theme-entry .toggle-switch input {
   display: none;
 }
-.theme.entry .slider {
+
+.theme-entry .slider {
   position: absolute;
   cursor: pointer;
   background-color: #ccc;
@@ -17,6 +19,7 @@
   height: 100%;
   width: 100%;
 }
+
 .theme-entry .slider:before {
   content: "";
   position: absolute;
@@ -28,9 +31,11 @@
   transition: 0.4s;
   border-radius: 50%;
 }
-input:checked + .slider {
+
+.theme-entry input:checked + .slider {
   background-color: #2196F3;
 }
-input:checked + .slider:before {
+
+.theme-entry input:checked + .slider:before {
   transform: translateX(26px);
 }

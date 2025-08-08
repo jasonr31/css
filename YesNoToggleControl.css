@@ -1,14 +1,14 @@
-.toggle-switch {
+.theme-entry .toggle-switch {
   position: relative;
   display: inline-block;
   width: 60px;
   height: 34px;
   margin-left: 10px;
 }
-.toggle-switch input {
+.theme-entry .toggle-switch input {
   display: none;
 }
-.slider {
+.theme.entry .slider {
   position: absolute;
   cursor: pointer;
   background-color: #ccc;
@@ -17,7 +17,7 @@
   height: 100%;
   width: 100%;
 }
-.slider:before {
+.theme-entry .slider:before {
   content: "";
   position: absolute;
   height: 26px;

@@ -1,6 +1,6 @@
 function convertCheckboxesToToggles() {
     const checkboxContainers = document.querySelectorAll(".theme-entry input[type='checkbox']");
-
+alert('test');
     checkboxContainers.forEach(checkbox => {
         alert('test');
         // Skip if already converted

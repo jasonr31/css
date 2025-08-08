@@ -5,11 +5,9 @@
   height: 34px;
   margin-left: 10px;
 }
-
 .theme-entry .toggle-switch input {
   display: none;
 }
-
 .theme-entry .slider {
   position: absolute;
   cursor: pointer;
@@ -19,7 +17,6 @@
   height: 100%;
   width: 100%;
 }
-
 .theme-entry .slider:before {
   content: "";
   position: absolute;
@@ -31,11 +28,9 @@
   transition: 0.4s;
   border-radius: 50%;
 }
-
 .theme-entry input:checked + .slider {
   background-color: #2196F3;
 }
-
 .theme-entry input:checked + .slider:before {
   transform: translateX(26px);
 }

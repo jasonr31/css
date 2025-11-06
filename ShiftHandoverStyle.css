@@ -1,82 +1,585 @@
+/* ============================================
+   K2 FIVE SMARTFORM STYLE PROFILE
+   Mobile Shift Handover - Modern Design
+   ============================================ */
 
-/* Shift Handover Style Profile for K2 Five SmartForms */
+/* ============================================
+   GLOBAL FORM STYLES
+   ============================================ */
 
-/* General input styling */
+/* Form Body */
+body.form-body,
+.form-body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif !important;
+    background: #f5f5f5 !important;
+    -webkit-font-smoothing: antialiased !important;
+}
+
+/* Main Form Container */
+.form-container,
+.runtime-form {
+    max-width: 600px !important;
+    margin: 0 auto !important;
+    padding: 15px !important;
+    background: transparent !important;
+}
+
+/* ============================================
+   FORM VIEWS & SECTIONS
+   ============================================ */
+
+/* View Containers */
+.view,
+.form-view {
+    background: white !important;
+    border-radius: 12px !important;
+    padding: 20px !important;
+    margin-bottom: 15px !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+    border: none !important;
+}
+
+/* Section Headers */
+.section-header,
+.view-header,
+h2.section-title {
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    color: #333 !important;
+    margin-bottom: 15px !important;
+    padding-bottom: 10px !important;
+    border-bottom: 2px solid #667eea !important;
+    background: none !important;
+}
+
+/* ============================================
+   INPUT CONTROLS - TEXT, NUMBER, DATE
+   ============================================ */
+
+/* Text Inputs, Number Inputs, Date Pickers */
 input[type="text"],
+input[type="number"],
 input[type="date"],
-input[type="time"],
-textarea,
-select {
-  font-family: 'Segoe UI', sans-serif;
-  font-size: 14px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  background-color: #f9f9f9;
-  width: 100%;
-  box-sizing: border-box;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+input[type="email"],
+input[type="tel"],
+.text-box input,
+.picker input,
+.numeric-text-box input,
+.theme-entry {
+    width: 100% !important;
+    padding: 12px !important;
+    border: 2px solid #e0e0e0 !important;
+    border-radius: 8px !important;
+    font-size: 16px !important;
+    background: white !important;
+    transition: all 0.3s ease !important;
+    box-sizing: border-box !important;
 }
 
-/* Focus state */
+/* Input Focus State */
 input[type="text"]:focus,
+input[type="number"]:focus,
 input[type="date"]:focus,
-input[type="time"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+.text-box input:focus,
+.picker input:focus,
+.numeric-text-box input:focus,
+.theme-entry:focus {
+    outline: none !important;
+    border-color: #667eea !important;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1) !important;
+}
+
+/* ============================================
+   DROPDOWN / SELECT CONTROLS
+   ============================================ */
+
+/* Dropdown Controls */
+select,
+.drop-down-list select,
+.combo-box .k-dropdown,
+.k-dropdown-wrap {
+    width: 100% !important;
+    padding: 12px !important;
+    border: 2px solid #e0e0e0 !important;
+    border-radius: 8px !important;
+    font-size: 16px !important;
+    background: white !important;
+    transition: all 0.3s ease !important;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 12px center !important;
+    background-size: 12px !important;
+}
+
+/* Dropdown Focus State */
+select:focus,
+.drop-down-list select:focus,
+.combo-box .k-dropdown:focus,
+.k-dropdown-wrap.k-state-focused {
+    outline: none !important;
+    border-color: #667eea !important;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1) !important;
+}
+
+/* K2 Dropdown Button */
+.k-dropdown .k-select {
+    border-left: none !important;
+    background: transparent !important;
+}
+
+/* ============================================
+   TEXTAREA CONTROLS
+   ============================================ */
+
+/* Textarea */
+textarea,
+.text-area textarea {
+    width: 100% !important;
+    min-height: 100px !important;
+    padding: 12px !important;
+    border: 2px solid #e0e0e0 !important;
+    border-radius: 8px !important;
+    font-size: 16px !important;
+    font-family: inherit !important;
+    background: white !important;
+    resize: vertical !important;
+    transition: all 0.3s ease !important;
+    box-sizing: border-box !important;
+}
+
+/* Textarea Focus State */
 textarea:focus,
-select:focus {
-  border-color: #0078d4;
-  box-shadow: 0 0 5px rgba(0, 120, 212, 0.3);
-  outline: none;
+.text-area textarea:focus {
+    outline: none !important;
+    border-color: #667eea !important;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1) !important;
 }
 
-/* Label styling */
-label {
-  font-weight: 600;
-  margin-bottom: 6px;
-  display: block;
-  color: #333;
+/* ============================================
+   LABELS
+   ============================================ */
+
+/* Control Labels */
+label,
+.label,
+.control-label,
+span.label-text {
+    display: block !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    color: #555 !important;
+    margin-bottom: 8px !important;
+    background: none !important;
 }
 
-/* Section headers */
-.section-header {
-  font-size: 16px;
-  font-weight: bold;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  color: #0078d4;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 5px;
+/* Required Field Indicator */
+.required-indicator,
+.is-required::after,
+label.required::after {
+    content: " *" !important;
+    color: #e74c3c !important;
+    font-weight: 600 !important;
 }
 
-/* Button styling */
-button,
-input[type="submit"] {
-  background-color: #0078d4;
-  color: white;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: 600;
+/* ============================================
+   BUTTONS
+   ============================================ */
+
+/* Primary Action Buttons */
+button.primary,
+.button.primary,
+input[type="button"].primary,
+input[type="submit"],
+.form-action-bar button[type="submit"] {
+    padding: 14px 24px !important;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 8px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    min-width: 120px !important;
 }
 
-button:hover,
+button.primary:hover,
+.button.primary:hover,
 input[type="submit"]:hover {
-  background-color: #005a9e;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3) !important;
 }
 
-/* Form layout */
-.form-group {
-  margin-bottom: 15px;
+button.primary:active,
+.button.primary:active,
+input[type="submit"]:active {
+    transform: scale(0.98) !important;
 }
 
-.form-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+/* Secondary Buttons */
+button.secondary,
+.button.secondary,
+button[type="button"]:not(.primary),
+.form-action-bar button:not([type="submit"]) {
+    padding: 14px 24px !important;
+    background: #e0e0e0 !important;
+    color: #555 !important;
+    border: none !important;
+    border-radius: 8px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    min-width: 120px !important;
 }
 
-.form-row > div {
-  flex: 1;
-  min-width: 200px;
+button.secondary:hover,
+.button.secondary:hover {
+    background: #d0d0d0 !important;
 }
+
+button.secondary:active,
+.button.secondary:active {
+    transform: scale(0.98) !important;
+}
+
+/* Button Group / Action Bar */
+.form-action-bar,
+.button-group {
+    display: flex !important;
+    gap: 10px !important;
+    padding: 15px 0 !important;
+    flex-wrap: wrap !important;
+}
+
+/* ============================================
+   CHECKBOXES & RADIO BUTTONS
+   ============================================ */
+
+/* Checkbox Container */
+.check-box,
+.checkbox-list,
+input[type="checkbox"] {
+    margin: 8px 0 !important;
+}
+
+/* Checkbox Label */
+.check-box label,
+.checkbox-list label {
+    display: inline-flex !important;
+    align-items: center !important;
+    cursor: pointer !important;
+    font-weight: 400 !important;
+}
+
+/* Radio Button Container */
+.radio-button,
+.radio-button-list,
+input[type="radio"] {
+    margin: 8px 0 !important;
+}
+
+/* Radio Button Label */
+.radio-button label,
+.radio-button-list label {
+    display: inline-flex !important;
+    align-items: center !important;
+    cursor: pointer !important;
+    font-weight: 400 !important;
+}
+
+/* ============================================
+   LIST VIEWS & TABLES
+   ============================================ */
+
+/* List View Container */
+.list-view,
+.item-view {
+    background: white !important;
+    border-radius: 12px !important;
+    padding: 15px !important;
+    margin-bottom: 12px !important;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06) !important;
+    border: none !important;
+}
+
+/* List View Items */
+.list-view-item,
+.item-view-row {
+    padding: 12px !important;
+    border-bottom: 1px solid #f0f0f0 !important;
+    transition: background 0.2s ease !important;
+}
+
+.list-view-item:hover,
+.item-view-row:hover {
+    background: #f8f9fa !important;
+}
+
+.list-view-item:last-child,
+.item-view-row:last-child {
+    border-bottom: none !important;
+}
+
+/* Data Tables */
+table.data-table,
+.k-grid-content table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+}
+
+table.data-table th,
+.k-grid-content th {
+    background: #f8f9fa !important;
+    padding: 12px !important;
+    font-weight: 600 !important;
+    color: #333 !important;
+    text-align: left !important;
+    border-bottom: 2px solid #e0e0e0 !important;
+}
+
+table.data-table td,
+.k-grid-content td {
+    padding: 12px !important;
+    border-bottom: 1px solid #f0f0f0 !important;
+}
+
+/* ============================================
+   FILE UPLOAD CONTROLS
+   ============================================ */
+
+/* File Upload Container */
+.file-upload,
+.attachment-control {
+    background: white !important;
+    border: 2px dashed #667eea !important;
+    border-radius: 8px !important;
+    padding: 20px !important;
+    text-align: center !important;
+    transition: all 0.3s ease !important;
+}
+
+.file-upload:hover,
+.attachment-control:hover {
+    background: #f0f3ff !important;
+    border-color: #5568d3 !important;
+}
+
+/* File Upload Button */
+.file-upload input[type="file"] {
+    display: none !important;
+}
+
+.file-upload label,
+.attachment-control label {
+    color: #667eea !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+}
+
+/* ============================================
+   VALIDATION & ERROR MESSAGES
+   ============================================ */
+
+/* Validation Error Messages */
+.validation-error,
+.error-message,
+span.k-invalid-msg {
+    color: #e74c3c !important;
+    font-size: 13px !important;
+    margin-top: 5px !important;
+    display: block !important;
+}
+
+/* Invalid Input Fields */
+input.invalid,
+select.invalid,
+textarea.invalid,
+.k-invalid {
+    border-color: #e74c3c !important;
+    background: #fff5f5 !important;
+}
+
+/* Success Messages */
+.success-message {
+    background: #d4edda !important;
+    border: 1px solid #c3e6cb !important;
+    border-radius: 8px !important;
+    padding: 12px !important;
+    color: #155724 !important;
+    margin-bottom: 15px !important;
+}
+
+/* Info Messages */
+.info-message,
+.info-box {
+    background: #e8f4f8 !important;
+    border-left: 4px solid #3498db !important;
+    padding: 12px !important;
+    border-radius: 4px !important;
+    margin-bottom: 15px !important;
+    font-size: 13px !important;
+    color: #2c3e50 !important;
+}
+
+/* ============================================
+   MOBILE RESPONSIVENESS
+   ============================================ */
+
+@media (max-width: 768px) {
+    /* Form Container */
+    .form-container,
+    .runtime-form {
+        padding: 10px !important;
+    }
+    
+    /* Views/Sections */
+    .view,
+    .form-view {
+        padding: 15px !important;
+        border-radius: 10px !important;
+    }
+    
+    /* Buttons */
+    button,
+    .button,
+    input[type="button"],
+    input[type="submit"] {
+        width: 100% !important;
+        margin-bottom: 8px !important;
+    }
+    
+    /* Button Groups */
+    .form-action-bar,
+    .button-group {
+        flex-direction: column !important;
+    }
+    
+    /* Inputs */
+    input,
+    select,
+    textarea {
+        font-size: 16px !important; /* Prevents zoom on iOS */
+    }
+}
+
+/* ============================================
+   K2 SPECIFIC OVERRIDES
+   ============================================ */
+
+/* K2 Form Canvas */
+.form-canvas {
+    background: transparent !important;
+    padding: 0 !important;
+}
+
+/* K2 Control Containers */
+.control-container {
+    margin-bottom: 18px !important;
+}
+
+/* K2 View Canvas */
+.view-canvas {
+    background: transparent !important;
+}
+
+/* K2 Toolbar */
+.form-toolbar {
+    background: white !important;
+    border-radius: 12px !important;
+    padding: 15px !important;
+    margin-bottom: 15px !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+}
+
+/* Remove K2 Default Borders */
+.control-container,
+.view,
+.section {
+    border: none !important;
+}
+
+/* K2 Expression Labels */
+.expression-label {
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    color: #555 !important;
+    margin-bottom: 8px !important;
+}
+
+/* K2 Data Label (Read-only text) */
+.data-label,
+.display-value {
+    padding: 12px !important;
+    background: #f8f9fa !important;
+    border: 2px solid #e0e0e0 !important;
+    border-radius: 8px !important;
+    font-size: 16px !important;
+    color: #333 !important;
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+/* Hidden Elements */
+.hidden,
+.hide {
+    display: none !important;
+}
+
+/* Disabled State */
+input:disabled,
+select:disabled,
+textarea:disabled,
+button:disabled,
+.disabled,
+.theme-entry:disabled {
+    opacity: 0.6 !important;
+    cursor: not-allowed !important;
+    background: #f5f5f5 !important;
+}
+
+/* Read-only State */
+input[readonly],
+select[readonly],
+textarea[readonly],
+.theme-entry[readonly] {
+    background: #f8f9fa !important;
+    cursor: default !important;
+}
+
+/* Loading Spinner */
+.loading,
+.k-loading-mask {
+    background: rgba(255,255,255,0.9) !important;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.view,
+.form-view {
+    animation: fadeIn 0.3s ease !important;
+}
+
+/* ============================================
+   END OF STYLE PROFILE
+   ============================================ */

@@ -1,0 +1,82 @@
+
+/* Shift Handover Style Profile for K2 Five SmartForms */
+
+/* General input styling */
+input[type="text"],
+input[type="date"],
+input[type="time"],
+textarea,
+select {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 14px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Focus state */
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="time"]:focus,
+textarea:focus,
+select:focus {
+  border-color: #0078d4;
+  box-shadow: 0 0 5px rgba(0, 120, 212, 0.3);
+  outline: none;
+}
+
+/* Label styling */
+label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: block;
+  color: #333;
+}
+
+/* Section headers */
+.section-header {
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: #0078d4;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+}
+
+/* Button styling */
+button,
+input[type="submit"] {
+  background-color: #0078d4;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+button:hover,
+input[type="submit"]:hover {
+  background-color: #005a9e;
+}
+
+/* Form layout */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.form-row > div {
+  flex: 1;
+  min-width: 200px;
+}

@@ -55,11 +55,15 @@ h2 {
 }
 
 /* ============================================
-   INPUT CONTROLS - K2 THEME-ENTRY PATTERN
+   INPUT CONTROLS - K2 ACTUAL CLASSES
    ============================================ */
 
-/* K2 Text Input Styling */
-.theme-entry input {
+/* K2 Text Box Controls */
+input.SFC,
+input.SourceCode-Forms-Controls-Web-TextBox,
+input.SFE,
+input[type="text"].SFC,
+input[type="number"].SFC {
     width: 100%;
     padding: 12px;
     border: 2px solid #e0e0e0;
@@ -71,30 +75,42 @@ h2 {
 }
 
 /* Input Focus State */
-.theme-entry input:focus {
+input.SFC:focus,
+input.SourceCode-Forms-Controls-Web-TextBox:focus,
+input.SFE:focus {
     outline: none;
     border-color: #667eea;
     box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
 /* Disabled State */
-.theme-entry input:disabled {
+input.SFC:disabled,
+input.SourceCode-Forms-Controls-Web-TextBox:disabled,
+input.SFE:disabled {
     opacity: 0.6;
     cursor: not-allowed;
     background: #f5f5f5;
 }
 
 /* Read-only State */
-.theme-entry input[readonly] {
+input.SFC[readonly],
+input.SourceCode-Forms-Controls-Web-TextBox[readonly],
+input.SFE[readonly] {
     background: #f8f9fa;
     cursor: default;
 }
 
 /* Invalid State */
-.theme-entry input.invalid,
-.theme-entry input[aria-invalid="true"] {
+input.SFC.invalid,
+input.SourceCode-Forms-Controls-Web-TextBox.invalid,
+input.SFE[aria-invalid="true"] {
     border-color: #e74c3c;
     background: #fff5f5;
+}
+
+/* Editor Cell Container */
+.editor-cell {
+    margin-bottom: 18px;
 }
 
 /* ============================================
@@ -102,6 +118,8 @@ h2 {
    ============================================ */
 
 /* K2 Dropdown Styling */
+select.SFC,
+select.SourceCode-Forms-Controls-Web-DropDownList,
 .theme-entry select {
     width: 100%;
     padding: 12px;
@@ -120,6 +138,8 @@ h2 {
 }
 
 /* Dropdown Focus State */
+select.SFC:focus,
+select.SourceCode-Forms-Controls-Web-DropDownList:focus,
 .theme-entry select:focus {
     outline: none;
     border-color: #667eea;
@@ -159,6 +179,8 @@ h2 {
    ============================================ */
 
 /* K2 Textarea Styling */
+textarea.SFC,
+textarea.SourceCode-Forms-Controls-Web-TextArea,
 .theme-entry textarea {
     width: 100%;
     min-height: 100px;
@@ -174,6 +196,8 @@ h2 {
 }
 
 /* Textarea Focus State */
+textarea.SFC:focus,
+textarea.SourceCode-Forms-Controls-Web-TextArea:focus,
 .theme-entry textarea:focus {
     outline: none;
     border-color: #667eea;

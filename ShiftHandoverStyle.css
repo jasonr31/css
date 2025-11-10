@@ -1,57 +1,627 @@
+/* ============================================
+   K2 FIVE SMARTFORM STYLE PROFILE
+   Mobile Shift Handover - Modern Design
+   ============================================ */
 
+/* ============================================
+   GLOBAL FORM STYLES
+   ============================================ */
+
+/* Form Body */
+body.form-body,
+.form-body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif !important;
+    background: #f5f5f5 !important;
+    -webkit-font-smoothing: antialiased !important;
+}
+
+/* Main Form Container */
+.form-container,
+.runtime-form {
+    max-width: 600px !important;
+    margin: 0 auto !important;
+    padding: 15px !important;
+    background: transparent !important;
+}
+
+/* ============================================
+   FORM VIEWS & SECTIONS
+   ============================================ */
+
+/* View Containers */
+.view,
+.form-view {
+    background: white !important;
+    border-radius: 12px !important;
+    padding: 20px !important;
+    margin-bottom: 15px !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+    border: none !important;
+}
+
+/* Section Headers */
+.section-header,
+.view-header,
+h2.section-title {
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    color: #333 !important;
+    margin-bottom: 15px !important;
+    padding-bottom: 10px !important;
+    border-bottom: 2px solid #667eea !important;
+    background: none !important;
+}
+
+/* ============================================
+   INPUT CONTROLS - K2 THEME-ENTRY PATTERN
+   ============================================ */
+
+/* Text Inputs via theme-entry container */
 .theme-entry input[type="text"],
+.theme-entry input[type="number"],
 .theme-entry input[type="date"],
-.theme-entry textarea,
-.theme-entry select {
-  font-family: 'Segoe UI', sans-serif;
-  font-size: 14px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  background-color: #f9f9f9;
-  width: 100%;
-  box-sizing: border-box;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+.theme-entry input[type="email"],
+.theme-entry input[type="tel"],
+.theme-entry input[type="password"] {
+    width: 100% !important;
+    padding: 12px !important;
+    border: 2px solid #e0e0e0 !important;
+    border-radius: 8px !important;
+    font-size: 16px !important;
+    background: white !important;
+    transition: all 0.3s ease !important;
+    box-sizing: border-box !important;
 }
 
+/* Input Focus State */
 .theme-entry input[type="text"]:focus,
+.theme-entry input[type="number"]:focus,
 .theme-entry input[type="date"]:focus,
-.theme-entry textarea:focus,
-.theme-entry select:focus {
-  border-color: #0078d4;
-  box-shadow: 0 0 5px rgba(0, 120, 212, 0.3);
-  outline: none;
+.theme-entry input[type="email"]:focus,
+.theme-entry input[type="tel"]:focus,
+.theme-entry input[type="password"]:focus {
+    outline: none !important;
+    border-color: #667eea !important;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1) !important;
 }
 
-.theme-entry label {
-  font-weight: 600;
-  margin-bottom: 6px;
-  display: block;
-  color: #333;
+/* Disabled State for theme-entry inputs */
+.theme-entry input:disabled {
+    opacity: 0.6 !important;
+    cursor: not-allowed !important;
+    background: #f5f5f5 !important;
 }
 
-.theme-entry .section-header {
-  font-size: 16px;
-  font-weight: bold;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  color: #0078d4;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 5px;
+/* Read-only State for theme-entry inputs */
+.theme-entry input[readonly] {
+    background: #f8f9fa !important;
+    cursor: default !important;
 }
 
-.theme-entry button,
-.theme-entry input[type="submit"] {
-  background-color: #0078d4;
-  color: white;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: 600;
+/* ============================================
+   DROPDOWN / SELECT CONTROLS
+   ============================================ */
+
+/* Dropdown Controls via theme-entry */
+.theme-entry select,
+.theme-entry .k-dropdown,
+.theme-entry .k-dropdown-wrap {
+    width: 100% !important;
+    padding: 12px !important;
+    border: 2px solid #e0e0e0 !important;
+    border-radius: 8px !important;
+    font-size: 16px !important;
+    background: white !important;
+    transition: all 0.3s ease !important;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 12px center !important;
+    background-size: 12px !important;
 }
 
-.theme-entry button:hover,
-.theme-entry input[type="submit"]:hover {
-  background-color: #005a9e;
+/* Dropdown Focus State */
+.theme-entry select:focus,
+.theme-entry .k-dropdown:focus,
+.theme-entry .k-dropdown-wrap.k-state-focused {
+    outline: none !important;
+    border-color: #667eea !important;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1) !important;
 }
+
+/* K2 Dropdown Button */
+.theme-entry .k-dropdown .k-select {
+    border-left: none !important;
+    background: transparent !important;
+}
+
+/* ============================================
+   TEXTAREA CONTROLS
+   ============================================ */
+
+/* Textarea via theme-entry */
+.theme-entry textarea {
+    width: 100% !important;
+    min-height: 100px !important;
+    padding: 12px !important;
+    border: 2px solid #e0e0e0 !important;
+    border-radius: 8px !important;
+    font-size: 16px !important;
+    font-family: inherit !important;
+    background: white !important;
+    resize: vertical !important;
+    transition: all 0.3s ease !important;
+    box-sizing: border-box !important;
+}
+
+/* Textarea Focus State */
+.theme-entry textarea:focus {
+    outline: none !important;
+    border-color: #667eea !important;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1) !important;
+}
+
+/* ============================================
+   LABELS
+   ============================================ */
+
+/* Control Labels */
+.theme-entry label,
+label,
+.label,
+.control-label,
+span.label-text {
+    display: block !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    color: #555 !important;
+    margin-bottom: 8px !important;
+    background: none !important;
+}
+
+/* Required Field Indicator */
+.required-indicator,
+.is-required::after,
+label.required::after {
+    content: " *" !important;
+    color: #e74c3c !important;
+    font-weight: 600 !important;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+
+/* Primary Action Buttons */
+.theme-entry button.primary,
+button.primary,
+.button.primary,
+input[type="button"].primary,
+input[type="submit"],
+.form-action-bar button[type="submit"] {
+    padding: 14px 24px !important;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 8px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    min-width: 120px !important;
+}
+
+.theme-entry button.primary:hover,
+button.primary:hover,
+.button.primary:hover,
+input[type="submit"]:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3) !important;
+}
+
+.theme-entry button.primary:active,
+button.primary:active,
+.button.primary:active,
+input[type="submit"]:active {
+    transform: scale(0.98) !important;
+}
+
+/* Secondary Buttons */
+.theme-entry button.secondary,
+button.secondary,
+.button.secondary,
+button[type="button"]:not(.primary),
+.form-action-bar button:not([type="submit"]) {
+    padding: 14px 24px !important;
+    background: #e0e0e0 !important;
+    color: #555 !important;
+    border: none !important;
+    border-radius: 8px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    min-width: 120px !important;
+}
+
+.theme-entry button.secondary:hover,
+button.secondary:hover,
+.button.secondary:hover {
+    background: #d0d0d0 !important;
+}
+
+.theme-entry button.secondary:active,
+button.secondary:active,
+.button.secondary:active {
+    transform: scale(0.98) !important;
+}
+
+/* Button Group / Action Bar */
+.form-action-bar,
+.button-group {
+    display: flex !important;
+    gap: 10px !important;
+    padding: 15px 0 !important;
+    flex-wrap: wrap !important;
+}
+
+/* ============================================
+   CHECKBOXES & RADIO BUTTONS
+   ============================================ */
+
+/* Checkbox Container */
+.theme-entry .check-box,
+.check-box,
+.checkbox-list {
+    margin: 8px 0 !important;
+}
+
+/* Checkbox Input */
+.theme-entry input[type="checkbox"],
+input[type="checkbox"] {
+    margin-right: 8px !important;
+}
+
+/* Checkbox Label */
+.theme-entry .check-box label,
+.check-box label,
+.checkbox-list label {
+    display: inline-flex !important;
+    align-items: center !important;
+    cursor: pointer !important;
+    font-weight: 400 !important;
+}
+
+/* Radio Button Container */
+.theme-entry .radio-button,
+.radio-button,
+.radio-button-list {
+    margin: 8px 0 !important;
+}
+
+/* Radio Input */
+.theme-entry input[type="radio"],
+input[type="radio"] {
+    margin-right: 8px !important;
+}
+
+/* Radio Button Label */
+.theme-entry .radio-button label,
+.radio-button label,
+.radio-button-list label {
+    display: inline-flex !important;
+    align-items: center !important;
+    cursor: pointer !important;
+    font-weight: 400 !important;
+}
+
+/* ============================================
+   LIST VIEWS & TABLES
+   ============================================ */
+
+/* List View Container */
+.list-view,
+.item-view {
+    background: white !important;
+    border-radius: 12px !important;
+    padding: 15px !important;
+    margin-bottom: 12px !important;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06) !important;
+    border: none !important;
+}
+
+/* List View Items */
+.list-view-item,
+.item-view-row {
+    padding: 12px !important;
+    border-bottom: 1px solid #f0f0f0 !important;
+    transition: background 0.2s ease !important;
+}
+
+.list-view-item:hover,
+.item-view-row:hover {
+    background: #f8f9fa !important;
+}
+
+.list-view-item:last-child,
+.item-view-row:last-child {
+    border-bottom: none !important;
+}
+
+/* Data Tables */
+table.data-table,
+.k-grid-content table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+}
+
+table.data-table th,
+.k-grid-content th {
+    background: #f8f9fa !important;
+    padding: 12px !important;
+    font-weight: 600 !important;
+    color: #333 !important;
+    text-align: left !important;
+    border-bottom: 2px solid #e0e0e0 !important;
+}
+
+table.data-table td,
+.k-grid-content td {
+    padding: 12px !important;
+    border-bottom: 1px solid #f0f0f0 !important;
+}
+
+/* ============================================
+   FILE UPLOAD CONTROLS
+   ============================================ */
+
+/* File Upload Container */
+.theme-entry .file-upload,
+.file-upload,
+.attachment-control {
+    background: white !important;
+    border: 2px dashed #667eea !important;
+    border-radius: 8px !important;
+    padding: 20px !important;
+    text-align: center !important;
+    transition: all 0.3s ease !important;
+}
+
+.theme-entry .file-upload:hover,
+.file-upload:hover,
+.attachment-control:hover {
+    background: #f0f3ff !important;
+    border-color: #5568d3 !important;
+}
+
+/* File Upload Button */
+.theme-entry .file-upload input[type="file"],
+.file-upload input[type="file"] {
+    display: none !important;
+}
+
+.theme-entry .file-upload label,
+.file-upload label,
+.attachment-control label {
+    color: #667eea !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+}
+
+/* ============================================
+   VALIDATION & ERROR MESSAGES
+   ============================================ */
+
+/* Validation Error Messages */
+.theme-entry .validation-error,
+.validation-error,
+.error-message,
+span.k-invalid-msg {
+    color: #e74c3c !important;
+    font-size: 13px !important;
+    margin-top: 5px !important;
+    display: block !important;
+}
+
+/* Invalid Input Fields */
+.theme-entry input.invalid,
+.theme-entry select.invalid,
+.theme-entry textarea.invalid,
+input.invalid,
+select.invalid,
+textarea.invalid,
+.k-invalid {
+    border-color: #e74c3c !important;
+    background: #fff5f5 !important;
+}
+
+/* Success Messages */
+.success-message {
+    background: #d4edda !important;
+    border: 1px solid #c3e6cb !important;
+    border-radius: 8px !important;
+    padding: 12px !important;
+    color: #155724 !important;
+    margin-bottom: 15px !important;
+}
+
+/* Info Messages */
+.info-message,
+.info-box {
+    background: #e8f4f8 !important;
+    border-left: 4px solid #3498db !important;
+    padding: 12px !important;
+    border-radius: 4px !important;
+    margin-bottom: 15px !important;
+    font-size: 13px !important;
+    color: #2c3e50 !important;
+}
+
+/* ============================================
+   MOBILE RESPONSIVENESS
+   ============================================ */
+
+@media (max-width: 768px) {
+    /* Form Container */
+    .form-container,
+    .runtime-form {
+        padding: 10px !important;
+    }
+    
+    /* Views/Sections */
+    .view,
+    .form-view {
+        padding: 15px !important;
+        border-radius: 10px !important;
+    }
+    
+    /* Buttons */
+    .theme-entry button,
+    button,
+    .button,
+    input[type="button"],
+    input[type="submit"] {
+        width: 100% !important;
+        margin-bottom: 8px !important;
+    }
+    
+    /* Button Groups */
+    .form-action-bar,
+    .button-group {
+        flex-direction: column !important;
+    }
+    
+    /* Inputs - Prevent iOS zoom */
+    .theme-entry input,
+    .theme-entry select,
+    .theme-entry textarea,
+    input,
+    select,
+    textarea {
+        font-size: 16px !important;
+    }
+}
+
+/* ============================================
+   K2 SPECIFIC OVERRIDES
+   ============================================ */
+
+/* K2 Form Canvas */
+.form-canvas {
+    background: transparent !important;
+    padding: 0 !important;
+}
+
+/* K2 Control Containers */
+.control-container {
+    margin-bottom: 18px !important;
+}
+
+/* K2 View Canvas */
+.view-canvas {
+    background: transparent !important;
+}
+
+/* K2 Toolbar */
+.form-toolbar {
+    background: white !important;
+    border-radius: 12px !important;
+    padding: 15px !important;
+    margin-bottom: 15px !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+}
+
+/* Remove K2 Default Borders */
+.control-container,
+.view,
+.section {
+    border: none !important;
+}
+
+/* K2 Expression Labels */
+.expression-label {
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    color: #555 !important;
+    margin-bottom: 8px !important;
+}
+
+/* K2 Data Label (Read-only text) */
+.theme-entry .data-label,
+.data-label,
+.display-value {
+    padding: 12px !important;
+    background: #f8f9fa !important;
+    border: 2px solid #e0e0e0 !important;
+    border-radius: 8px !important;
+    font-size: 16px !important;
+    color: #333 !important;
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+/* Hidden Elements */
+.hidden,
+.hide {
+    display: none !important;
+}
+
+/* Disabled State */
+.theme-entry input:disabled,
+.theme-entry select:disabled,
+.theme-entry textarea:disabled,
+.theme-entry button:disabled,
+input:disabled,
+select:disabled,
+textarea:disabled,
+button:disabled,
+.disabled {
+    opacity: 0.6 !important;
+    cursor: not-allowed !important;
+    background: #f5f5f5 !important;
+}
+
+/* Read-only State */
+.theme-entry input[readonly],
+.theme-entry select[readonly],
+.theme-entry textarea[readonly],
+input[readonly],
+select[readonly],
+textarea[readonly] {
+    background: #f8f9fa !important;
+    cursor: default !important;
+}
+
+/* Loading Spinner */
+.loading,
+.k-loading-mask {
+    background: rgba(255,255,255,0.9) !important;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.view,
+.form-view {
+    animation: fadeIn 0.3s ease !important;
+}
+
+/* ============================================
+   END OF STYLE PROFILE
+   ============================================ */

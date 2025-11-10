@@ -1,0 +1,480 @@
+/* ============================================
+   K2 ISSUES LIST - CARD STYLE VIEW
+   Transform K2 Grid View to Modern Card Layout
+   ============================================ */
+
+/* ============================================
+   HIDE TABLE STRUCTURE
+   ============================================ */
+
+/* Hide column headers */
+.grid-column-headers {
+    display: none;
+}
+
+/* Transform table into block layout */
+.grid-content-table {
+    display: block;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.grid-content-table colgroup,
+.grid-content-table col {
+    display: none;
+}
+
+.grid-content-table tbody {
+    display: block;
+    width: 100%;
+}
+
+/* ============================================
+   CARD LAYOUT FOR ROWS
+   ============================================ */
+
+/* Transform each table row into a card */
+.grid-content-table tbody tr {
+    display: block;
+    background: white;
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    border-left: 4px solid #e0e0e0;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+/* Empty grid message styling */
+.grid-content-table tbody tr.empty-grid {
+    text-align: center;
+    padding: 40px 20px;
+    background: #f8f9fa;
+    border-left: none;
+}
+
+.grid-content-table tbody tr.empty-grid td {
+    display: block;
+}
+
+/* Hover effect on cards */
+.grid-content-table tbody tr:not(.empty-grid):hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transform: translateX(2px);
+    cursor: pointer;
+}
+
+/* ============================================
+   PRIORITY-BASED CARD STYLING
+   ============================================ */
+
+/* These selectors target the Priority column (2nd td) */
+/* Critical Priority - Red Border */
+.grid-content-table tbody tr:has(td:nth-child(2) .DataLabel:contains("Critical")),
+.grid-content-table tbody tr:has(td:nth-child(2) .runtime-list-item:contains("Critical")) {
+    border-left-color: #dc3545;
+    background: #fff5f5;
+}
+
+/* High Priority - Yellow/Orange Border */
+.grid-content-table tbody tr:has(td:nth-child(2) .DataLabel:contains("High")),
+.grid-content-table tbody tr:has(td:nth-child(2) .runtime-list-item:contains("High")) {
+    border-left-color: #ffc107;
+    background: #fffef5;
+}
+
+/* Medium Priority - Blue Border */
+.grid-content-table tbody tr:has(td:nth-child(2) .DataLabel:contains("Medium")),
+.grid-content-table tbody tr:has(td:nth-child(2) .runtime-list-item:contains("Medium")) {
+    border-left-color: #17a2b8;
+}
+
+/* Low Priority - Green Border */
+.grid-content-table tbody tr:has(td:nth-child(2) .DataLabel:contains("Low")),
+.grid-content-table tbody tr:has(td:nth-child(2) .runtime-list-item:contains("Low")) {
+    border-left-color: #28a745;
+}
+
+/* ============================================
+   CELL LAYOUT
+   ============================================ */
+
+/* Hide table cells as table structure */
+.grid-content-table tbody tr:not(.empty-grid) td {
+    display: block;
+    border: none;
+    padding: 0;
+    margin-bottom: 8px;
+}
+
+.grid-content-table tbody tr:not(.empty-grid) td:last-child {
+    margin-bottom: 0;
+}
+
+/* Grid content cell styling */
+.grid-content-cell {
+    display: block;
+    width: 100%;
+}
+
+.grid-content-cell-wrapper {
+    display: block;
+    width: 100%;
+}
+
+/* K2 Data Label and List Display Styling */
+.SFC.SourceCode-Forms-Controls-Web-DataLabel,
+.DataLabel.Label,
+.runtime-list-item {
+    display: inline-block;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* ============================================
+   ADD FIELD LABELS
+   ============================================ */
+
+/* Issue Type Label */
+.grid-content-table tbody tr:not(.empty-grid) td:nth-child(1) .grid-content-cell-wrapper::before {
+    content: "Type: ";
+    font-weight: 600;
+    color: #333;
+    margin-right: 5px;
+}
+
+/* Priority Label */
+.grid-content-table tbody tr:not(.empty-grid) td:nth-child(2) .grid-content-cell-wrapper::before {
+    content: "Priority: ";
+    font-weight: 600;
+    color: #333;
+    margin-right: 5px;
+}
+
+/* Description Label */
+.grid-content-table tbody tr:not(.empty-grid) td:nth-child(3) .grid-content-cell-wrapper::before {
+    content: "Description: ";
+    font-weight: 600;
+    color: #333;
+    display: block;
+    margin-bottom: 4px;
+}
+
+/* Reference Number Label */
+.grid-content-table tbody tr:not(.empty-grid) td:nth-child(4) .grid-content-cell-wrapper::before {
+    content: "Reference #: ";
+    font-weight: 600;
+    color: #333;
+    margin-right: 5px;
+}
+
+/* Reference Name Label */
+.grid-content-table tbody tr:not(.empty-grid) td:nth-child(5) .grid-content-cell-wrapper::before {
+    content: "Asset/Item: ";
+    font-weight: 600;
+    color: #333;
+    margin-right: 5px;
+}
+
+/* Reported By Label */
+.grid-content-table tbody tr:not(.empty-grid) td:nth-child(6) .grid-content-cell-wrapper::before {
+    content: "Reported By: ";
+    font-weight: 600;
+    color: #333;
+    margin-right: 5px;
+}
+
+/* Reported Date Label */
+.grid-content-table tbody tr:not(.empty-grid) td:nth-child(7) .grid-content-cell-wrapper::before {
+    content: "Date: ";
+    font-weight: 600;
+    color: #333;
+    margin-right: 5px;
+}
+
+/* Status Label */
+.grid-content-table tbody tr:not(.empty-grid) td:nth-child(8) .grid-content-cell-wrapper::before {
+    content: "Status: ";
+    font-weight: 600;
+    color: #333;
+    margin-right: 5px;
+}
+
+/* Assigned To Label */
+.grid-content-table tbody tr:not(.empty-grid) td:nth-child(9) .grid-content-cell-wrapper::before {
+    content: "Assigned To: ";
+    font-weight: 600;
+    color: #333;
+    margin-right: 5px;
+}
+
+/* ============================================
+   FIELD-SPECIFIC STYLING
+   ============================================ */
+
+/* Issue Type Badge */
+.grid-content-table tbody tr:not(.empty-grid) td:nth-child(1) .DataLabel,
+.grid-content-table tbody tr:not(.empty-grid) td:nth-child(1) .runtime-list-item {
+    background: #e8f4f8;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+/* Priority Badge Base Styling */
+.grid-content-table tbody tr:not(.empty-grid) td:nth-child(2) .DataLabel,
+.grid-content-table tbody tr:not(.empty-grid) td:nth-child(2) .runtime-list-item {
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+/* Critical Priority Badge */
+.grid-content-table tbody tr:not(.empty-grid) td:nth-child(2) .DataLabel:contains("Critical"),
+.grid-content-table tbody tr:not(.empty-grid) td:nth-child(2) .runtime-list-item:contains("Critical") {
+    background: #dc3545;
+    color: white;
+}
+
+/* High Priority Badge */
+.grid-content-table tbody tr:not(.empty-grid) td:nth-child(2) .DataLabel:contains("High"),
+.grid-content-table tbody tr:not(.empty-grid) td:nth-child(2) .runtime-list-item:contains("High") {
+    background: #ffc107;
+    color: #000;
+}
+
+/* Medium Priority Badge */
+.grid-content-table tbody tr:not(.empty-grid) td:nth-child(2) .DataLabel:contains("Medium"),
+.grid-content-table tbody tr:not(.empty-grid) td:nth-child(2) .runtime-list-item:contains("Medium") {
+    background: #17a2b8;
+    color: white;
+}
+
+/* Low Priority Badge */
+.grid-content-table tbody tr:not(.empty-grid) td:nth-child(2) .DataLabel:contains("Low"),
+.grid-content-table tbody tr:not(.empty-grid) td:nth-child(2) .runtime-list-item:contains("Low") {
+    background: #28a745;
+    color: white;
+}
+
+/* Description Field - Larger text */
+.grid-content-table tbody tr:not(.empty-grid) td:nth-child(3) .SFC,
+.grid-content-table tbody tr:not(.empty-grid) td:nth-child(3) .runtime-list-item {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.6;
+    display: block;
+    margin-top: 4px;
+}
+
+/* Reference Number - Monospace */
+.grid-content-table tbody tr:not(.empty-grid) td:nth-child(4) .SFC,
+.grid-content-table tbody tr:not(.empty-grid) td:nth-child(4) .runtime-list-item {
+    font-family: 'Courier New', monospace;
+    font-weight: 600;
+    color: #667eea;
+}
+
+/* Status Badge */
+.grid-content-table tbody tr:not(.empty-grid) td:nth-child(8) .SFC,
+.grid-content-table tbody tr:not(.empty-grid) td:nth-child(8) .runtime-list-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.grid-content-table tbody tr:not(.empty-grid) td:nth-child(8) .SFC::before,
+.grid-content-table tbody tr:not(.empty-grid) td:nth-child(8) .runtime-list-item::before {
+    content: "●";
+    font-size: 10px;
+}
+
+/* Open Status */
+.grid-content-table tbody tr:not(.empty-grid) td:nth-child(8) .SFC:contains("Open"),
+.grid-content-table tbody tr:not(.empty-grid) td:nth-child(8) .runtime-list-item:contains("Open") {
+    background: #fff3cd;
+    color: #856404;
+}
+
+/* In Progress Status */
+.grid-content-table tbody tr:not(.empty-grid) td:nth-child(8) .SFC:contains("In Progress"),
+.grid-content-table tbody tr:not(.empty-grid) td:nth-child(8) .runtime-list-item:contains("In Progress") {
+    background: #cfe2ff;
+    color: #084298;
+}
+
+/* Resolved Status */
+.grid-content-table tbody tr:not(.empty-grid) td:nth-child(8) .SFC:contains("Resolved"),
+.grid-content-table tbody tr:not(.empty-grid) td:nth-child(8) .runtime-list-item:contains("Resolved") {
+    background: #d1e7dd;
+    color: #0f5132;
+}
+
+/* ============================================
+   CARD HEADER LAYOUT
+   ============================================ */
+
+/* Type and Priority appear inline as header */
+.grid-content-table tbody tr:not(.empty-grid) td:nth-child(1),
+.grid-content-table tbody tr:not(.empty-grid) td:nth-child(2) {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 10px;
+    margin-bottom: 12px;
+}
+
+/* Description takes full width with separator */
+.grid-content-table tbody tr:not(.empty-grid) td:nth-child(3) {
+    clear: both;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/* Meta information styling */
+.grid-content-table tbody tr:not(.empty-grid) td:nth-child(4),
+.grid-content-table tbody tr:not(.empty-grid) td:nth-child(5),
+.grid-content-table tbody tr:not(.empty-grid) td:nth-child(6),
+.grid-content-table tbody tr:not(.empty-grid) td:nth-child(7),
+.grid-content-table tbody tr:not(.empty-grid) td:nth-child(8),
+.grid-content-table tbody tr:not(.empty-grid) td:nth-child(9) {
+    font-size: 13px;
+    color: #666;
+}
+
+/* ============================================
+   HIDE EMPTY FIELD LABELS
+   ============================================ */
+
+/* Don't show labels for empty K2 DataLabel controls */
+.grid-content-table tbody tr:not(.empty-grid) td .grid-content-cell-wrapper:has(.SFC.empty)::before {
+    display: none;
+}
+
+/* Hide parent wrapper if K2 control is empty */
+.grid-content-table tbody tr:not(.empty-grid) td:has(.SFC.empty) {
+    display: none;
+}
+
+/* ============================================
+   MOBILE RESPONSIVENESS
+   ============================================ */
+
+@media (max-width: 768px) {
+    .grid-content-table tbody tr:not(.empty-grid) {
+        padding: 15px;
+        margin-bottom: 10px;
+    }
+    
+    .grid-content-table tbody tr:not(.empty-grid) td:nth-child(1),
+    .grid-content-table tbody tr:not(.empty-grid) td:nth-child(2) {
+        display: block;
+        margin-right: 0;
+        margin-bottom: 8px;
+    }
+    
+    .SFC,
+    .DataLabel,
+    .runtime-list-item {
+        font-size: 13px;
+    }
+}
+
+/* ============================================
+   GRID BODY ADJUSTMENTS
+   ============================================ */
+
+/* Ensure scroll wrapper doesn't add scrollbars unnecessarily */
+.grid-body-content .scroll-wrapper {
+    overflow: visible;
+}
+
+/* Grid body content */
+.grid-body-content {
+    background: transparent;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+/* Fade in animation for cards */
+@keyframes cardFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.grid-content-table tbody tr:not(.empty-grid) {
+    animation: cardFadeIn 0.3s ease;
+}
+
+/* ============================================
+   FOCUS AND SELECTION STATES
+   ============================================ */
+
+/* Selected row highlighting */
+.grid-content-table tbody tr.highlighted,
+.grid-content-table tbody tr.selected {
+    background: #f0f3ff;
+    border-left-color: #667eea;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+}
+
+/* Focus state for accessibility */
+.grid-content-table:focus tbody tr.selected:not(.empty-grid) {
+    outline: 2px solid #667eea;
+    outline-offset: 2px;
+}
+
+/* ============================================
+   FIX K2 SPECIFIC STYLING
+   ============================================ */
+
+/* Remove K2's default table styling */
+.grid-body-content-wrapper {
+    background: transparent;
+    border: none;
+}
+
+/* Hide K2 edit templates */
+.grid-edit-templates,
+.grid-display-templates {
+    display: none;
+}
+
+/* ============================================
+   TOOLBAR ADJUSTMENTS
+   ============================================ */
+
+/* Keep toolbar visible and functional */
+.grid-toolbars {
+    margin-bottom: 15px;
+}
+
+.toolbar {
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* ============================================
+   END OF CARD VIEW CSS
+   ============================================ */

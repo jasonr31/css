@@ -1,577 +1,145 @@
 /* ============================================
-   K2 FIVE SMARTFORM STYLE PROFILE
-   Mobile Shift Handover - Modern Design
+   K2 ISSUES LIST - CARD VIEW
+   Simple, Direct Approach
    ============================================ */
 
 /* ============================================
-   GLOBAL FORM STYLES
+   STEP 1: HIDE HEADERS
    ============================================ */
 
-/* Form Body */
-body,
-body.form-body,
-.form-body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    background: #f5f5f5;
-    -webkit-font-smoothing: antialiased;
-}
-
-/* Main Form Container */
-.form-container,
-.runtime-form {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 15px;
-    background: transparent;
+.grid-column-headers {
+    display: none !important;
 }
 
 /* ============================================
-   FORM VIEWS & SECTIONS
+   STEP 2: CONVERT TABLE TO BLOCK
    ============================================ */
 
-/* View Containers */
-.view,
-.form-view {
-    background: white;
-    border-radius: 12px;
-    padding: 20px;
-    margin-bottom: 15px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    border: none;
+.grid-content-table {
+    display: block !important;
+    width: 100% !important;
 }
 
-/* Section Headers */
-.section-header,
-.view-header,
-h2.section-title,
-h2 {
-    font-size: 16px;
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 15px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #667eea;
-    background: none;
+.grid-content-table colgroup {
+    display: none !important;
+}
+
+.grid-content-table tbody {
+    display: block !important;
+    width: 100% !important;
 }
 
 /* ============================================
-   INPUT CONTROLS - K2 THEME-ENTRY PATTERN
+   STEP 3: MAKE ROWS INTO CARDS
    ============================================ */
 
-/* K2 Text Input Styling */
-.theme-entry input {
-    width: 100%;
-    padding: 12px;
-    border: 2px solid #e0e0e0;
-    border-radius: 8px;
-    font-size: 16px;
-    background: white;
-    transition: all 0.3s ease;
-    box-sizing: border-box;
+.grid-content-table tbody tr {
+    display: block !important;
+    background: white !important;
+    border-radius: 12px !important;
+    padding: 18px !important;
+    margin-bottom: 12px !important;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06) !important;
+    border-left: 4px solid #e0e0e0 !important;
 }
 
-/* Input Focus State */
-.theme-entry input:focus {
-    outline: none;
-    border-color: #667eea;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-}
-
-/* Disabled State */
-.theme-entry input:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-    background: #f5f5f5;
-}
-
-/* Read-only State */
-.theme-entry input[readonly] {
-    background: #f8f9fa;
-    cursor: default;
-}
-
-/* Invalid State */
-.theme-entry input.invalid,
-.theme-entry input[aria-invalid="true"] {
-    border-color: #e74c3c;
-    background: #fff5f5;
-}
-
-/* ============================================
-   DROPDOWN / SELECT CONTROLS
-   ============================================ */
-
-/* K2 Dropdown Styling */
-.theme-entry select {
-    width: 100%;
-    padding: 12px;
-    border: 2px solid #e0e0e0;
-    border-radius: 8px;
-    font-size: 16px;
-    background: white;
-    transition: all 0.3s ease;
-    appearance: none;
-    -webkit-appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 12px center;
-    background-size: 12px;
+.grid-content-table tbody tr:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+    transform: translateX(2px);
     cursor: pointer;
 }
 
-/* Dropdown Focus State */
-.theme-entry select:focus {
-    outline: none;
-    border-color: #667eea;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-}
-
-/* K2 Kendo Dropdown */
-.theme-entry .k-dropdown,
-.theme-entry .k-widget.k-dropdown {
-    width: 100%;
-    border: 2px solid #e0e0e0;
-    border-radius: 8px;
-    background: white;
-}
-
-.theme-entry .k-dropdown-wrap,
-.theme-entry .k-dropdown .k-input {
-    padding: 12px;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    background: transparent;
-}
-
-.theme-entry .k-dropdown-wrap.k-state-focused {
-    border: 2px solid #667eea;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-}
-
-.theme-entry .k-dropdown .k-select {
-    border: none;
-    background: transparent;
+/* Empty grid row */
+.grid-content-table tbody tr.empty-grid {
+    text-align: center !important;
+    padding: 40px 20px !important;
+    background: #f8f9fa !important;
+    border-left: none !important;
 }
 
 /* ============================================
-   TEXTAREA CONTROLS
+   STEP 4: MAKE CELLS BLOCK ELEMENTS
    ============================================ */
 
-/* K2 Textarea Styling */
-.theme-entry textarea {
-    width: 100%;
-    min-height: 100px;
-    padding: 12px;
-    border: 2px solid #e0e0e0;
-    border-radius: 8px;
-    font-size: 16px;
-    font-family: inherit;
-    background: white;
-    resize: vertical;
-    transition: all 0.3s ease;
-    box-sizing: border-box;
+.grid-content-table tbody tr td {
+    display: block !important;
+    border: none !important;
+    padding: 0 !important;
+    margin-bottom: 8px !important;
+    width: 100% !important;
 }
 
-/* Textarea Focus State */
-.theme-entry textarea:focus {
-    outline: none;
-    border-color: #667eea;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+.grid-content-table tbody tr td:last-child {
+    margin-bottom: 0 !important;
+}
+
+.grid-content-cell {
+    display: block !important;
+    width: 100% !important;
+}
+
+.grid-content-cell-wrapper {
+    display: block !important;
+    width: 100% !important;
 }
 
 /* ============================================
-   LABELS
+   STEP 5: STYLE CONTENT
    ============================================ */
 
-/* K2 Control Labels */
-label,
-.label,
-.control-label,
-.theme-entry label {
-    display: block;
-    font-size: 14px;
-    font-weight: 500;
-    color: #555;
-    margin-bottom: 8px;
-    background: none;
-}
-
-/* Required Field Indicator */
-.required,
-.required-indicator,
-label.required::after {
-    color: #e74c3c;
-}
-
-label.required::after {
-    content: " *";
-    font-weight: 600;
+/* All data labels and text */
+.grid-content-table .DataLabel,
+.grid-content-table .SFC,
+.grid-content-table .runtime-list-item {
+    font-size: 14px !important;
+    color: #555 !important;
+    line-height: 1.5 !important;
 }
 
 /* ============================================
-   BUTTONS
+   STEP 6: ADD FIELD LABELS WITH CSS
    ============================================ */
 
-/* Primary Action Buttons */
-button[type="submit"],
-button.primary,
-input[type="submit"],
-input[type="button"].primary,
-.theme-entry button.primary {
-    padding: 14px 24px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    min-width: 120px;
+/* Column 1: Issue Type */
+.grid-content-table tbody tr td:nth-child(1) .grid-content-cell-wrapper::before {
+    content: "Type: " !important;
+    font-weight: 600 !important;
+    color: #333 !important;
+    margin-right: 5px !important;
 }
 
-button[type="submit"]:hover,
-button.primary:hover,
-input[type="submit"]:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+/* Column 2: Priority */
+.grid-content-table tbody tr td:nth-child(2) .grid-content-cell-wrapper::before {
+    content: "Priority: " !important;
+    font-weight: 600 !important;
+    color: #333 !important;
+    margin-right: 5px !important;
 }
 
-button[type="submit"]:active,
-button.primary:active {
-    transform: scale(0.98);
+/* Column 3: Description */
+.grid-content-table tbody tr td:nth-child(3) .grid-content-cell-wrapper::before {
+    content: "Description: " !important;
+    font-weight: 600 !important;
+    color: #333 !important;
+    display: block !important;
+    margin-bottom: 4px !important;
 }
 
-/* Secondary Buttons */
-button[type="button"],
-button.secondary,
-input[type="button"],
-.theme-entry button {
-    padding: 14px 24px;
-    background: #e0e0e0;
-    color: #555;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    min-width: 120px;
+/* Column 4: Reference Number */
+.grid-content-table tbody tr td:nth-child(4) .grid-content-cell-wrapper::before {
+    content: "Reference #: " !important;
+    font-weight: 600 !important;
+    color: #333 !important;
+    margin-right: 5px !important;
 }
 
-button[type="button"]:hover,
-button.secondary:hover {
-    background: #d0d0d0;
+/* Column 5: Reference Name */
+.grid-content-table tbody tr td:nth-child(5) .grid-content-cell-wrapper::before {
+    content: "Asset/Item: " !important;
+    font-weight: 600 !important;
+    color: #333 !important;
+    margin-right: 5px !important;
 }
 
-button[type="button"]:active,
-button.secondary:active {
-    transform: scale(0.98);
-}
-
-/* Disabled Buttons */
-button:disabled,
-input[type="submit"]:disabled,
-input[type="button"]:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-}
-
-/* Button Group / Action Bar */
-.form-action-bar,
-.button-group {
-    display: flex;
-    gap: 10px;
-    padding: 15px 0;
-    flex-wrap: wrap;
-}
-
-/* ============================================
-   CHECKBOXES & RADIO BUTTONS
-   ============================================ */
-
-/* Checkbox and Radio Containers */
-.theme-entry .check-box,
-.theme-entry .radio-button {
-    margin: 8px 0;
-}
-
-/* Checkbox and Radio Inputs */
-.theme-entry input[type="checkbox"],
-.theme-entry input[type="radio"] {
-    margin-right: 8px;
-    cursor: pointer;
-}
-
-/* Checkbox and Radio Labels */
-.theme-entry .check-box label,
-.theme-entry .radio-button label {
-    display: inline-flex;
-    align-items: center;
-    cursor: pointer;
-    font-weight: 400;
-}
-
-/* ============================================
-   DATE PICKER STYLING
-   ============================================ */
-
-/* K2 Date Picker */
-.theme-entry .k-datepicker {
-    width: 100%;
-}
-
-.theme-entry .k-datepicker .k-picker-wrap {
-    border: 2px solid #e0e0e0;
-    border-radius: 8px;
-    background: white;
-}
-
-.theme-entry .k-datepicker .k-input {
-    padding: 12px;
-    font-size: 16px;
-    border: none;
-}
-
-.theme-entry .k-datepicker .k-picker-wrap.k-state-focused {
-    border-color: #667eea;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-}
-
-/* ============================================
-   LIST VIEWS & TABLES
-   ============================================ */
-
-/* List View Items */
-.list-view,
-.item-view,
-.theme-entry .list-view {
-    background: white;
-    border-radius: 12px;
-    padding: 15px;
-    margin-bottom: 12px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-    border: none;
-}
-
-.list-view-item,
-.item-view-row {
-    padding: 12px;
-    border-bottom: 1px solid #f0f0f0;
-}
-
-.list-view-item:hover,
-.item-view-row:hover {
-    background: #f8f9fa;
-}
-
-.list-view-item:last-child,
-.item-view-row:last-child {
-    border-bottom: none;
-}
-
-/* K2 Grid/Table */
-.k-grid,
-.theme-entry .k-grid {
-    border: none;
-    border-radius: 12px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-}
-
-.k-grid-header {
-    background: #f8f9fa;
-    border: none;
-}
-
-.k-grid-header th {
-    padding: 12px;
-    font-weight: 600;
-    color: #333;
-    border-bottom: 2px solid #e0e0e0;
-}
-
-.k-grid-content td {
-    padding: 12px;
-    border-bottom: 1px solid #f0f0f0;
-}
-
-/* ============================================
-   FILE UPLOAD CONTROLS
-   ============================================ */
-
-/* File Upload Container */
-.theme-entry .file-upload,
-.file-attachment {
-    background: white;
-    border: 2px dashed #667eea;
-    border-radius: 8px;
-    padding: 20px;
-    text-align: center;
-    transition: all 0.3s ease;
-}
-
-.theme-entry .file-upload:hover,
-.file-attachment:hover {
-    background: #f0f3ff;
-    border-color: #5568d3;
-}
-
-/* ============================================
-   VALIDATION & ERROR MESSAGES
-   ============================================ */
-
-/* Validation Error Messages */
-.validation-error,
-.error-message,
-.theme-entry .validation-error,
-span.k-invalid-msg {
-    color: #e74c3c;
-    font-size: 13px;
-    margin-top: 5px;
-    display: block;
-}
-
-/* Success Messages */
-.success-message {
-    background: #d4edda;
-    border: 1px solid #c3e6cb;
-    border-radius: 8px;
-    padding: 12px;
-    color: #155724;
-    margin-bottom: 15px;
-}
-
-/* Info Messages */
-.info-message,
-.info-box {
-    background: #e8f4f8;
-    border-left: 4px solid #3498db;
-    padding: 12px;
-    border-radius: 4px;
-    margin-bottom: 15px;
-    font-size: 13px;
-    color: #2c3e50;
-}
-
-/* ============================================
-   K2 SPECIFIC OVERRIDES
-   ============================================ */
-
-/* K2 Form Canvas */
-.form-canvas {
-    background: transparent;
-    padding: 0;
-}
-
-/* K2 Control Containers */
-.control-container {
-    margin-bottom: 18px;
-}
-
-/* K2 View Canvas */
-.view-canvas {
-    background: transparent;
-}
-
-/* Remove K2 Default Borders */
-.control-container,
-.section {
-    border: none;
-}
-
-/* K2 Data Label (Read-only display) */
-.theme-entry .data-label,
-.data-label,
-.display-value {
-    padding: 12px;
-    background: #f8f9fa;
-    border: 2px solid #e0e0e0;
-    border-radius: 8px;
-    font-size: 16px;
-    color: #333;
-}
-
-/* K2 Expression Label */
-.expression-label {
-    font-size: 14px;
-    font-weight: 500;
-    color: #555;
-    margin-bottom: 8px;
-}
-
-/* ============================================
-   MOBILE RESPONSIVENESS
-   ============================================ */
-
-@media (max-width: 768px) {
-    .form-container,
-    .runtime-form {
-        padding: 10px;
-    }
-    
-    .view,
-    .form-view {
-        padding: 15px;
-        border-radius: 10px;
-    }
-    
-    button,
-    input[type="button"],
-    input[type="submit"] {
-        width: 100%;
-        margin-bottom: 8px;
-    }
-    
-    .form-action-bar,
-    .button-group {
-        flex-direction: column;
-    }
-    
-    /* Prevent iOS zoom on input focus */
-    .theme-entry input,
-    .theme-entry select,
-    .theme-entry textarea {
-        font-size: 16px;
-    }
-}
-
-/* ============================================
-   UTILITY CLASSES
-   ============================================ */
-
-/* Hidden Elements */
-.hidden,
-.hide {
-    display: none;
-}
-
-/* Loading State */
-.loading,
-.k-loading-mask {
-    background: rgba(255,255,255,0.9);
-}
-
-/* ============================================
-   ANIMATIONS
-   ============================================ */
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.view,
-.form-view {
-    animation: fadeIn 0.3s ease;
-}
-
-/* ============================================
-   END OF STYLE PROFILE
-   ============================================ */
+/* Column 6: Reported By */
+.grid-content-table tbody tr td:nth-child(6) .grid-content-cell-wrapper::before

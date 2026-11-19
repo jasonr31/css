@@ -17,16 +17,12 @@
         control, whether or not that renderer uses print media.
         The class is added by the script when the URL has &pdf=1.
 
+   Sizing and scaling only: showing/hiding controls is left to form rules.
+
    Link in: Style Profile Designer > Developer > External Files
    Note: a style profile applies to EVERY form that uses it - keep this
    profile dedicated to printable forms.
    ===================================================================== */
-
-/* ---------- Always: hide the locale (language) picker in the header ---------- */
-.theme-entry locale-switcher,
-.theme-entry dialog.locale-switcher-dropdown {
-  display: none !important;
-}
 
 /* ---------- Paper: margins only; size comes from the print/PDF settings ---------- */
 @page {
@@ -87,31 +83,6 @@
     height: auto !important;
     max-height: none !important;
     overflow: visible !important;
-  }
-
-  /* Hide interactive-only UI */
-  .theme-entry .input-control-buttons,
-  .theme-entry .svg-wrapper-picker,
-  .theme-entry .svg-wrapper-calendar,
-  .theme-entry .panel-header-controls,
-  .theme-entry .grid-header-controls,
-  .theme-entry .grid-toolbars,
-  .theme-entry .grid-footer,
-  .theme-entry .grid-edit-templates,
-  .theme-entry .grid-display-templates,
-  .theme-entry .grid-column-header-divider,
-  .theme-entry #listFilterNamePopup,
-  .theme-entry .drop-menu,
-  .theme-entry .style-aware-dropdown-svg {
-    display: none !important;
-  }
-
-  /* Inputs read as plain values: drop field chrome reserved for buttons */
-  .theme-entry .input-control.select-box .input-control-body,
-  .theme-entry .input-control.select-box .styling-left {
-    margin-right: 0 !important;
-    padding-right: 0 !important;
-    width: 100% !important;
   }
 
   /* Tighter vertical rhythm in the detail tables (runtime uses 15px) */
@@ -243,31 +214,6 @@
     height: auto !important;
     max-height: none !important;
     overflow: visible !important;
-  }
-
-  /* Hide interactive-only UI */
-  html.pdf-render .theme-entry .input-control-buttons,
-  html.pdf-render .theme-entry .svg-wrapper-picker,
-  html.pdf-render .theme-entry .svg-wrapper-calendar,
-  html.pdf-render .theme-entry .panel-header-controls,
-  html.pdf-render .theme-entry .grid-header-controls,
-  html.pdf-render .theme-entry .grid-toolbars,
-  html.pdf-render .theme-entry .grid-footer,
-  html.pdf-render .theme-entry .grid-edit-templates,
-  html.pdf-render .theme-entry .grid-display-templates,
-  html.pdf-render .theme-entry .grid-column-header-divider,
-  html.pdf-render .theme-entry #listFilterNamePopup,
-  html.pdf-render .theme-entry .drop-menu,
-  html.pdf-render .theme-entry .style-aware-dropdown-svg {
-    display: none !important;
-  }
-
-  /* Inputs read as plain values: drop field chrome reserved for buttons */
-  html.pdf-render .theme-entry .input-control.select-box .input-control-body,
-  html.pdf-render .theme-entry .input-control.select-box .styling-left {
-    margin-right: 0 !important;
-    padding-right: 0 !important;
-    width: 100% !important;
   }
 
   /* Tighter vertical rhythm in the detail tables (runtime uses 15px) */

@@ -73,7 +73,8 @@
   window.addEventListener('afterprint', exitPrint);
 
   // PDF Converter path: render the print layout on screen.
-  // Re-fit while K2 loads data into the views (heights change as it does).
+  // Re-fit while K2 loads data and form rules show/hide controls
+  // (heights change as they do).
   if (params.get('pdf') === '1') {
     enterPrint();
     var timer;
@@ -81,7 +82,10 @@
       clearTimeout(timer);
       timer = setTimeout(fit, 150);
     });
-    mo.observe(document.body, { childList: true, subtree: true, characterData: true });
+    mo.observe(document.body, {
+      childList: true, subtree: true, characterData: true,
+      attributes: true, attributeFilter: ['style', 'class']
+    });
     setTimeout(function () { mo.disconnect(); fit(); }, 15000);
   }
 

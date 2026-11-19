@@ -1,0 +1,346 @@
+/* =====================================================================
+   K2 Five Style Profile - Print / PDF scaled to A4 OR Letter
+   Form: PO.PurchaseOrderRequest.PDF.Form
+
+   How the scaling works
+   - The form is laid out at its natural 1000px design width, then shrunk
+     with CSS `zoom` so it fits the printable area of BOTH A4 and Letter.
+   - @page sets margins only (no size), so the paper chosen in the print
+     dialog or in the PDF Converter's Page Size input is used as-is.
+   - CSS alone uses a fixed zoom (0.68). The optional companion script
+     (PurchaseOrderPrintFit.js) computes the exact zoom so a PO fits on
+     one page when it can, and paginates cleanly when it can't.
+
+   The print rules appear twice:
+     1. inside @media print          -> browser Print / Save as PDF
+     2. under html.pdf-render        -> K2 PDF Converter / Save as PDF
+        control, whether or not that renderer uses print media.
+        The class is added by the script when the URL has &pdf=1.
+
+   Link in: Style Profile Designer > Developer > External Files
+   Note: a style profile applies to EVERY form that uses it - keep this
+   profile dedicated to printable forms.
+   ===================================================================== */
+
+/* ---------- Always: hide the locale (language) picker in the header ---------- */
+.theme-entry locale-switcher,
+.theme-entry dialog.locale-switcher-dropdown {
+  display: none !important;
+}
+
+/* ---------- Paper: margins only; size comes from the print/PDF settings ---------- */
+@page {
+  margin: 0.5in;   /* printable: A4 7.27 x 10.69in, Letter 7.5 x 10in */
+}
+
+/* ---------- 1. Browser print ---------- */
+@media print {
+  /* Keep backgrounds (section headers, label column, zebra rows) */
+  html .theme-entry,
+  .theme-entry * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Page canvas: white, no runtime chrome/margins */
+  html .theme-entry {
+    --page-background-color: #fff;
+    background: #fff !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: auto !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  .theme-entry .runtime-content {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* SCALING: lay the form out at its natural 1000px design width (the two
+     500px views sit side by side), then zoom it down to the paper.
+     0.68 -> 680px = 7.08in, which fits inside the printable width of both
+     A4 (7.27in) and Letter (7.5in) with 0.5in margins. The optional script
+     overrides --print-zoom to fit the page exactly. */
+  .theme-entry .runtime-form {
+    width: 1000px !important;
+    min-width: 1000px !important;
+    max-width: none !important;
+    margin: 0 !important;
+    zoom: var(--print-zoom, 0.68);
+  }
+
+  .theme-entry .form {
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: 0 !important;
+    width: auto !important;
+  }
+
+  /* Release fixed heights / scroll areas so nothing gets clipped */
+  .theme-entry .panel-body-wrapper,
+  .theme-entry .grid-body,
+  .theme-entry .grid-body-content,
+  .theme-entry .grid-body-content-wrapper,
+  .theme-entry .scroll-wrapper {
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  /* Hide interactive-only UI */
+  .theme-entry .input-control-buttons,
+  .theme-entry .svg-wrapper-picker,
+  .theme-entry .svg-wrapper-calendar,
+  .theme-entry .panel-header-controls,
+  .theme-entry .grid-header-controls,
+  .theme-entry .grid-toolbars,
+  .theme-entry .grid-footer,
+  .theme-entry .grid-edit-templates,
+  .theme-entry .grid-display-templates,
+  .theme-entry .grid-column-header-divider,
+  .theme-entry #listFilterNamePopup,
+  .theme-entry .drop-menu,
+  .theme-entry .style-aware-dropdown-svg {
+    display: none !important;
+  }
+
+  /* Inputs read as plain values: drop field chrome reserved for buttons */
+  .theme-entry .input-control.select-box .input-control-body,
+  .theme-entry .input-control.select-box .styling-left {
+    margin-right: 0 !important;
+    padding-right: 0 !important;
+    width: 100% !important;
+  }
+
+  /* Tighter vertical rhythm in the detail tables (runtime uses 15px) */
+  .theme-entry .form .root-table > .editor-cell {
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+  }
+
+  /* Text areas grow to fit their content - no scrollbars on paper */
+  .theme-entry .form textarea {
+    field-sizing: content !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: hidden !important;
+    resize: none !important;
+  }
+
+  /* List view rows: compact height (runtime forces ~60px rows) */
+  .theme-entry .grid .grid-content-table tr,
+  .theme-entry .grid .grid-content-table td,
+  .theme-entry .grid .grid-summary-content-table td {
+    height: auto !important;
+  }
+  .theme-entry .grid .grid-content-cell {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    min-height: 0 !important;
+  }
+  .theme-entry .grid .runtime-list-item {
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+    line-height: 1.3 !important;
+  }
+
+  /* List view: show full text instead of truncating with "..." */
+  .theme-entry .grid .runtime-list-item,
+  .theme-entry .grid .grid-content-cell-wrapper,
+  .theme-entry .grid .grid-column-header-text {
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    word-break: break-word;
+  }
+
+  .theme-entry .grid table {
+    width: 100% !important;
+    table-layout: fixed;
+  }
+
+  /* Page-break control (applies when a long PO runs past one page) */
+  .theme-entry .form > .row,
+  .theme-entry .panel,
+  .theme-entry .grid-header,
+  .theme-entry .grid-summary {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .theme-entry .grid-header {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+  .theme-entry .grid tr {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Links: no underlines, no appended hrefs */
+  .theme-entry a,
+  .theme-entry a:visited {
+    text-decoration: none !important;
+    color: inherit !important;
+  }
+  .theme-entry a[href]::after {
+    content: none !important;
+  }
+}
+
+/* ---------- 2. PDF render mode (html.pdf-render, set by the script) ---------- */
+  /* Keep backgrounds (section headers, label column, zebra rows) */
+  html.pdf-render .theme-entry,
+  html.pdf-render .theme-entry * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Page canvas: white, no runtime chrome/margins */
+  html.pdf-render .theme-entry {
+    --page-background-color: #fff;
+    background: #fff !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: auto !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  html.pdf-render .theme-entry .runtime-content {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* SCALING: lay the form out at its natural 1000px design width (the two
+     500px views sit side by side), then zoom it down to the paper.
+     0.68 -> 680px = 7.08in, which fits inside the printable width of both
+     A4 (7.27in) and Letter (7.5in) with 0.5in margins. The optional script
+     overrides --print-zoom to fit the page exactly. */
+  html.pdf-render .theme-entry .runtime-form {
+    width: 1000px !important;
+    min-width: 1000px !important;
+    max-width: none !important;
+    margin: 0 !important;
+    zoom: var(--print-zoom, 0.68);
+  }
+
+  html.pdf-render .theme-entry .form {
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: 0 !important;
+    width: auto !important;
+  }
+
+  /* Release fixed heights / scroll areas so nothing gets clipped */
+  html.pdf-render .theme-entry .panel-body-wrapper,
+  html.pdf-render .theme-entry .grid-body,
+  html.pdf-render .theme-entry .grid-body-content,
+  html.pdf-render .theme-entry .grid-body-content-wrapper,
+  html.pdf-render .theme-entry .scroll-wrapper {
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  /* Hide interactive-only UI */
+  html.pdf-render .theme-entry .input-control-buttons,
+  html.pdf-render .theme-entry .svg-wrapper-picker,
+  html.pdf-render .theme-entry .svg-wrapper-calendar,
+  html.pdf-render .theme-entry .panel-header-controls,
+  html.pdf-render .theme-entry .grid-header-controls,
+  html.pdf-render .theme-entry .grid-toolbars,
+  html.pdf-render .theme-entry .grid-footer,
+  html.pdf-render .theme-entry .grid-edit-templates,
+  html.pdf-render .theme-entry .grid-display-templates,
+  html.pdf-render .theme-entry .grid-column-header-divider,
+  html.pdf-render .theme-entry #listFilterNamePopup,
+  html.pdf-render .theme-entry .drop-menu,
+  html.pdf-render .theme-entry .style-aware-dropdown-svg {
+    display: none !important;
+  }
+
+  /* Inputs read as plain values: drop field chrome reserved for buttons */
+  html.pdf-render .theme-entry .input-control.select-box .input-control-body,
+  html.pdf-render .theme-entry .input-control.select-box .styling-left {
+    margin-right: 0 !important;
+    padding-right: 0 !important;
+    width: 100% !important;
+  }
+
+  /* Tighter vertical rhythm in the detail tables (runtime uses 15px) */
+  html.pdf-render .theme-entry .form .root-table > .editor-cell {
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+  }
+
+  /* Text areas grow to fit their content - no scrollbars on paper */
+  html.pdf-render .theme-entry .form textarea {
+    field-sizing: content !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: hidden !important;
+    resize: none !important;
+  }
+
+  /* List view rows: compact height (runtime forces ~60px rows) */
+  html.pdf-render .theme-entry .grid .grid-content-table tr,
+  html.pdf-render .theme-entry .grid .grid-content-table td,
+  html.pdf-render .theme-entry .grid .grid-summary-content-table td {
+    height: auto !important;
+  }
+  html.pdf-render .theme-entry .grid .grid-content-cell {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    min-height: 0 !important;
+  }
+  html.pdf-render .theme-entry .grid .runtime-list-item {
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+    line-height: 1.3 !important;
+  }
+
+  /* List view: show full text instead of truncating with "..." */
+  html.pdf-render .theme-entry .grid .runtime-list-item,
+  html.pdf-render .theme-entry .grid .grid-content-cell-wrapper,
+  html.pdf-render .theme-entry .grid .grid-column-header-text {
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    word-break: break-word;
+  }
+
+  html.pdf-render .theme-entry .grid table {
+    width: 100% !important;
+    table-layout: fixed;
+  }
+
+  /* Page-break control (applies when a long PO runs past one page) */
+  html.pdf-render .theme-entry .form > .row,
+  html.pdf-render .theme-entry .panel,
+  html.pdf-render .theme-entry .grid-header,
+  html.pdf-render .theme-entry .grid-summary {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  html.pdf-render .theme-entry .grid-header {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+  html.pdf-render .theme-entry .grid tr {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Links: no underlines, no appended hrefs */
+  html.pdf-render .theme-entry a,
+  html.pdf-render .theme-entry a:visited {
+    text-decoration: none !important;
+    color: inherit !important;
+  }
+  html.pdf-render .theme-entry a[href]::after {
+    content: none !important;
+  }
